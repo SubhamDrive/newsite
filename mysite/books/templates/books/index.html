@@ -1,5 +1,21 @@
+<h1>Books Names</h1>
 <ul>
     {% for book in all_books %}
     <li><a href="/books/{{book.id}}/">{{book.Name}}</a></li>
     {% endfor %}
+</ul>
+
+
+<h1>Teacher Names</h1>
+<ul>
+    {% for teacher in all_teacher %}
+    <li><a href="/books/{{teacher.id}}/">{{teacher.Name}}</a></li>
+    {% endfor %}
+</ul>
+
+<h1>Editors Name</h1>
+<ul>
+        {% for editor in all_editors %}
+        <li><a href="/books/{{editor.id}}/">{{editor.Name}}</a></li>
+        {% endfor %}
 </ul>
