@@ -18,3 +18,13 @@ class Teacher(models.Model):
     Name = models.CharField(max_length=100)
     Age = models.CharField(max_length=10)
     City = models.CharField(max_length=50)
+
+
+class Editors(models.Model):
+    def __str__(self):
+        return self.Name + "-" + self.Book_Name
+
+    Name = models.CharField(max_length=100)
+    Age = models.CharField(max_length=10)
+    City = models.CharField(max_length=50)
+    Book_Name = models.CharField(max_length=100)
