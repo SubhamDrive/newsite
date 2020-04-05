@@ -1,15 +1,20 @@
 from django.http import HttpResponse
 from .models import Book
-# Create your views here.
-#it will accept the request and send an http reponse.
+from django.template import loader
 
 def index(request):
     all_books = Book.objects.all()
-    html=''
+    template = loader.get_template('books/index.html')
+    context={
+        'all_books':all_books
+    }
+
+    """html=''
     for book in all_books:
         url = '/books/' + str(book.id) + "/"
         html+= '<a href="'+ url +'">' + str(book.Name) + '</a><br>'
-    return HttpResponse(html)
+    """
+    return HttpResponse(template.render(context,request))
 
 
 def detail(request,book_id):
