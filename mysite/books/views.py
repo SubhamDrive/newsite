@@ -13,16 +13,10 @@ def index(request):
 
 def detail(request,book_id):
     try:
-        book = Book.object.get(id=book_id)
+        book = Book.objects.get(id=book_id)
     except Book.DoesNotExist:
         raise Http404("This Book Dose Not Exist")
 
-    context={
-        'book':book
-    }
-
-    return render(request,'books/detail.html',book)
+    return render(request,'books/detail.html',{'book':book})
     #return HttpResponse("<h2>Details For Book Id:" +str(book_id)+ "</h2>")
 
-def byName(request,book_name):
-    return HttpResponse("<h2>Details For Book_name: " +str(book_name)+ "</h2>")
