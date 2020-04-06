@@ -27,3 +27,12 @@ def detail(request,book_id):
     return render(request,'books/detail.html',{'book':book})
     #return HttpResponse("<h2>Details For Book Id:" +str(book_id)+ "</h2>")
 
+
+def teacherDet(request,teacher_id):
+    try:
+        teacher = Teacher.objects.get(id=teacher_id)
+    except Teacher.DoesNotExist:
+        raise Http404("Teacher Does Not Exist")
+
+    return render(request,'books/teacherdetail.html',{'teacher':teacher})
+
