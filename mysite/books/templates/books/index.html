@@ -1,21 +1,37 @@
-<h1>Books Names</h1>
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'books/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-in">
+    <div class="container-fluid">
+        <a class ="navbar-brand" href="{% url 'books:index' %}"><h1>The Library</h1></a>
+    </div>
+</nav>
+<h2>Books Names</h2>
 <ul>
     {% for book in all_books %}
-    <li><a href="/books/{{book.id}}/">{{book.Name}}</a></li>
+    <!--<li><a href="/books/{{book.id}}/">{{book.Name}}</a></li> -->
+    <li><a href="{% url 'books:detail' book.id %}"><h3>{{book.Name}}</h3></a></li>
     {% endfor %}
 </ul>
 
 
-<h1>Teacher Names</h1>
+<h2>Teacher Names</h2>
 <ul>
     {% for teacher in all_teacher %}
-    <li><a href="/books/{{teacher.id}}/">{{teacher.Name}}</a></li>
+   <!-- <li><a href="/books/{{teacher.id}}/">{{teacher.Name}}</a></li> -->
+    <li><a href="{% url 'books:teacherDet' teacher.id %}"><h3>{{teacher.Name}}</h3></a></li>
     {% endfor %}
 </ul>
 
-<h1>Editors Name</h1>
+<h2>Editors Name</h2>
 <ul>
         {% for editor in all_editors %}
-        <li><a href="/books/{{editor.id}}/">{{editor.Name}}</a></li>
+    <li><a href="/books/{{editor.id}}/"><h3>{{editor.Name}}</h3></a></li>
         {% endfor %}
 </ul>
+</body>
+</html>

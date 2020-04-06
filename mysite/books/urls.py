@@ -1,6 +1,12 @@
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
+
+#We use this for namespace problem(namesapace proble, is that when we work on big project so many time
+# diffrent file has same name from differnet app so it will not create any problem we use namespace)
+
+app_name = 'books'
+
 urlpatterns = [
     #/book
     url(r'^$',views.index,name="index"),
