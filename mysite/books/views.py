@@ -34,5 +34,5 @@ def teacherDet(request,teacher_id):
     except Teacher.DoesNotExist:
         raise Http404("Teacher Does Not Exist")
 
-    return render(request,'books/teacherdetail.html',{'teacher':teacher})
+    return render(request,'books/teacherDet.html',{'teacher':teacher})
 
