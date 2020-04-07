@@ -2,6 +2,7 @@
 from .models import Book,Teacher,Editors
 from django.shortcuts import render
 from django.http import Http404
+from django.views.generic.edit import CreateView
 
 #render has inbuilt Httpresponse so insteed of passing request in hhtp directly pass in render
 
@@ -36,3 +37,6 @@ def teacherDet(request,teacher_id):
 
     return render(request,'books/teacherDet.html',{'teacher':teacher})
 
+def BookCreate(CreateView):
+    model = Book
+    fields = ['Name','Author','Price','Type']

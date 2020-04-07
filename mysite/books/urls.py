@@ -15,7 +15,6 @@ urlpatterns = [
     url(r'^(?P<teacher_id>[0-9]+)/$',views.teacherDet,name="teacherDet")
 
     #url(r'^(?P<book_name>[\w\-]+)/$',views.byName,name="byName"),
-
-
+    url(r'books/add/$',views.BookCreate.as_view(),name='book_add'),
 ]
 
